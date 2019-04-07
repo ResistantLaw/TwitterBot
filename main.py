@@ -3,11 +3,13 @@
 import tweepy
 import json
 import requests
-import keys
 import sched, time
+
+import keys
 
 class TwitterBot:
 
+    # keys contained in separate file
     consumer_key = keys.consumer_key
     consumer_secret = keys.consumer_secret
     access_token = keys.access_token
@@ -19,7 +21,7 @@ class TwitterBot:
 
     s = sched.scheduler(time.time, time.sleep)
 
-    def __init__(self):
+     def __init__(self):
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         auth.set_access_token(self.access_token, self.access_token_secret)
         self.api = tweepy.API(auth)
